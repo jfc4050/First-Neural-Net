@@ -1,3 +1,3 @@
 # First-Neural-Net
 
-![Derivation] (/First-Neural-Net/Backprop Derivation.JPG)
+![Derivation] (https://github.com/jfc4050/First-Neural-Net/blob/master/Backprop%20Derivation.JPG)
