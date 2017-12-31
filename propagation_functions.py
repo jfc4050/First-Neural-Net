@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def forwardpropagate(X, parameters, activation_functions):
     last_layer = len(activation_functions)
 
@@ -42,8 +43,8 @@ def backpropagate(outputs, parameters, activation_functions, Y, cost_function):
         prev_A = outputs["A" + str(layer - 1)]
 
         this_dZ = np.multiply(this_dA, this_dg(this_Z, return_derivative=True))
-        gradients["dW" + str(layer)] = (1 / m) * np.dot(this_dZ, prev_A.T)
-        gradients["db" + str(layer)] = (1 / m) * np.sum(this_dZ, axis=1, keepdims=True)
+        gradients["dW" + str(layer)] = (1.0 / m) * np.dot(this_dZ, prev_A.T)
+        gradients["db" + str(layer)] = (1.0 / m) * np.sum(this_dZ, axis=1, keepdims=True)
 
         return np.dot(this_W.T, this_dZ)  # return prev_dA
 

@@ -10,10 +10,8 @@ def initialize_parameters(layer_dims, scale_term=0.01):
     return parameters
 
 
-def get_cost(X, Y, parameters, activation_functions):
-    last_layer = len(activation_functions)
+def get_Yhat(X, parameters, activation_functions):
+    final_layer = len(activation_functions)
+    output = forwardpropagate(X, parameters, activation_functions)
 
-    outputs = forwardpropagate(X, parameters, activation_functions)
-    Yhat = outputs["A" + str(last_layer)].T
-    cost = compute_cost_logistic(Yhat, Y)
-    return cost
+    return output["A" + str(final_layer)].T
