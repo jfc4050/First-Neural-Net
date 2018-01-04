@@ -1,7 +1,10 @@
 # First Neural Net
 
+**1/3/18**
+- added batch gradient descent, still need to figure out how to shuffle matrices
+
 **1/2/18** 
-- added L2 regularization, still need to cleanup
+- added L<sub>2</sub> regularization, still need to cleanup
 - fixed roundoff error
 - added feature normalization function
 - moved away from jupyter notebook

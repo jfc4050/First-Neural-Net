@@ -1,6 +1,5 @@
 import numpy as np
 import h5py
-from pylab import *
 
 import matplotlib.pyplot as plt
 
@@ -40,19 +39,19 @@ def get_data_sets():
 def main():
     # NN Settings
     learning_rate = 0.008
-    # lambd = 0.00893
-    lambd = 0.0
+    λ = 0.009
 
     # NN Architecture
-    X_tr, Y_tr, m_tr, X_cv, Y_cv, m_cv, nx, ny = get_data_sets()
+    X_tr, Y_tr, m_tr, X_cv, Y_cv, m_cv, nₓ, nY = get_data_sets()
     activation_functions = {"g1": ReLU,
                             "g2": ReLU,
                             "g3": ReLU,
                             "g4": sigmoid}
-    layer_dims = [nx, 20, 7, 5, ny]
+    layer_dims = [nₓ, 20, 7, 5, nY]
     assert (len(activation_functions) == (len(layer_dims) - 1))
 
     # Iteration Settings
+    minibatch_size = 64
     min_iterations = 0
     max_iterations = 1300
     step_size = 20
@@ -62,7 +61,7 @@ def main():
 
     # Run
     parameters, data = model_nn(X_tr, Y_tr, X_cv, Y_cv,
-                                learning_rate, lambd,
+                                learning_rate, λ, minibatch_size,
                                 layer_dims, activation_functions, compute_cost_logistic,
                                 min_iterations, max_iterations, step_size)
 
@@ -77,11 +76,11 @@ def main():
     plt.plot(i_vals, tr_cost_vals, 'b')
     plt.xlabel("iterations")
     plt.ylabel("cost")
-    plt.title("lambda = " + str(lambd))
+    plt.title("lambda = " + str(λ))
     plt.show()
 
     plt.plot(i_vals, accuracy_vals, 'g')
-    plt.title("lambda = " + str(lambd))
+    plt.title("lambda = " + str(λ))
     plt.show()
 
 
