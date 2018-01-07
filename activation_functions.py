@@ -1,5 +1,5 @@
 import numpy as np
-
+np.seterr(all='raise')
 
 def ReLU(Z, derivative=False):
     if derivative:
@@ -20,5 +20,4 @@ def tanh(Z, derivative=False):
         return 1 - np.power(np.tanh(Z), 2)
     else:
         return np.tanh(Z)
-
 

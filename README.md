@@ -1,4 +1,13 @@
-# First Neural Net
+# First Neural Network
+
+**1/6/18**
+- added precision, recall, and F1 calculations
+
+**1/4/18**
+- added ADAM optimization, still need to debug
+- figured out how to shuffle matrices; now shuffling:
+    - prior to partitioning into train/cv sets
+    - prior to partitioning into minibatches
 
 **1/3/18**
 - added batch gradient descent, still need to figure out how to shuffle matrices
